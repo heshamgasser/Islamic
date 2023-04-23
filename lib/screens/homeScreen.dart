@@ -26,7 +26,7 @@ class _HomeScreenState extends State<HomeScreen> {
   Widget build(BuildContext context) {
     return Stack(
       children: [
-        SizedBox(
+        const SizedBox(
             width: double.infinity,
             child: Image(
               image: AssetImage('assets/images/backgroung.png'),
