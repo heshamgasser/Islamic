@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:islamic_app/themeData/themes.dart';
 import 'package:islamic_app/widgets/tableWidget.dart';
 
 import '../models/contentDetail.dart';
+
 
 class QuranTab extends StatelessWidget {
   const QuranTab({Key? key}) : super(key: key);
@@ -11,11 +13,14 @@ class QuranTab extends StatelessWidget {
     return SingleChildScrollView(
       child: Column(
         mainAxisAlignment: MainAxisAlignment.start,
+        crossAxisAlignment: CrossAxisAlignment.stretch,
         children: [
-          const Image(
+          Image(
+            height: MediaQuery.of(context).size.height / 3,
             image: AssetImage('assets/images/quran.png'),
           ),
           const SizedBox(height: 10),
+
           Table(
             textDirection: TextDirection.rtl,
             defaultVerticalAlignment: TableCellVerticalAlignment.middle,
