@@ -12,68 +12,87 @@ class _SebhaTabState extends State<SebhaTab> {
   int totalCounter = 0;
   String tashbeeh = 'سبحان الله';
 
+  List <String> tasbeehItem = ['سبحان الله', 'الحمد لله', 'الله أكبر'];
+
   @override
   Widget build(BuildContext context) {
     return Center(
       child: Column(
         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
         children: [
-          const SizedBox(height: 10),
+          const Spacer(flex: 3),
           InkWell(
             onTap: () {
               setState(() {
                 counter++;
                 totalCounter++;
                 checkState();
+
               });
             },
             child: Image(
-              color: Theme.of(context).primaryColor,
+              color: Theme
+                  .of(context)
+                  .primaryColor,
               image: const AssetImage('assets/images/sebha_logo.png'),
             ),
           ),
-          const SizedBox(height: 40),
-          Text('عدد التسبيحات', style: Theme.of(context).textTheme.bodyMedium),
-          const SizedBox(height: 35),
+          const Spacer(),
+          Text('عدد التسبيحات', style: Theme
+              .of(context)
+              .textTheme
+              .bodyMedium),
+          const Spacer(),
           InkWell(
             onTap: () {
               setState(() {
                 counter++;
                 totalCounter++;
                 checkState();
+
               });
             },
             child: Container(
               width: 69,
               height: 81,
               decoration: BoxDecoration(
-                color: Theme.of(context).primaryColor,
+                color: Theme
+                    .of(context)
+                    .primaryColor,
                 borderRadius: BorderRadius.circular(25),
               ),
               child: Center(
                 child: Text(
                   '$counter',
-                  style: Theme.of(context).textTheme.bodyLarge,
+                  style: Theme
+                      .of(context)
+                      .textTheme
+                      .bodyLarge,
                 ),
               ),
             ),
           ),
-          const SizedBox(height: 20),
+          const Spacer(),
           Container(
             width: 137,
             height: 51,
             decoration: BoxDecoration(
-              color: Theme.of(context).primaryColor,
+              color: Theme
+                  .of(context)
+                  .primaryColor,
               borderRadius: BorderRadius.circular(25),
             ),
             child: Center(
               child: Text(
                 tashbeeh,
-                style: Theme.of(context).textTheme.bodySmall,
+                style: Theme
+                    .of(context)
+                    .textTheme
+                    .bodySmall,
               ),
             ),
           ),
-          const Spacer(),
+          const Spacer(flex: 4),
         ],
       ),
     );
@@ -92,4 +111,9 @@ class _SebhaTabState extends State<SebhaTab> {
       tashbeeh = 'سبحان الله';
     }
   }
+
+
+
+
+
 }

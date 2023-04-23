@@ -7,6 +7,8 @@ import 'package:islamic_app/tabs/sebha.dart';
 class HomeScreen extends StatefulWidget {
   static const String routeName = 'Home Screen';
 
+  const HomeScreen({super.key});
+
   @override
   State<HomeScreen> createState() => _HomeScreenState();
 }
@@ -24,13 +26,12 @@ class _HomeScreenState extends State<HomeScreen> {
   Widget build(BuildContext context) {
     return Stack(
       children: [
-        const SizedBox(
-          width: double.infinity,
-          child: Image(
-            image: AssetImage('assets/images/backgroung.png'),
-            fit: BoxFit.cover,
-          ),
-        ),
+        SizedBox(
+            width: double.infinity,
+            child: Image(
+              image: AssetImage('assets/images/backgroung.png'),
+              fit: BoxFit.cover,
+            )),
         Scaffold(
           appBar: AppBar(
             title: Text(

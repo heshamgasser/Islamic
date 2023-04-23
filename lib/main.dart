@@ -5,7 +5,7 @@ import 'package:islamic_app/screens/surahScreen.dart';
 import 'package:islamic_app/themeData/themes.dart';
 
 void main() {
-  runApp(IslamicApp());
+  runApp(const IslamicApp());
 }
 
 class IslamicApp extends StatelessWidget {
@@ -16,12 +16,13 @@ class IslamicApp extends StatelessWidget {
     return MaterialApp(
       darkTheme: MyThemeData.darkTheme,
       theme: MyThemeData.lightTheme,
+      themeMode: ThemeMode.system,
       debugShowCheckedModeBanner: false,
       initialRoute: HomeScreen.routeName,
       routes: {
-        HomeScreen.routeName: (context) => HomeScreen(),
-        SurahScreen.routeName: (context) => SurahScreen(),
-        HadethScreen.routeName: (context) => HadethScreen(),
+        HomeScreen.routeName: (context) => const HomeScreen(),
+        SurahScreen.routeName: (context) => const SurahScreen(),
+        HadethScreen.routeName: (context) => const HadethScreen(),
       },
     );
   }

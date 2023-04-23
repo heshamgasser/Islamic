@@ -6,6 +6,8 @@ import 'package:islamic_app/models/hadethDetailArgs.dart';
 class HadethScreen extends StatefulWidget {
   static const String routeName = 'Hadeth Screen';
 
+  const HadethScreen({super.key});
+
   @override
   State<HadethScreen> createState() => _HadethScreenState();
 }
@@ -50,7 +52,7 @@ class _HadethScreenState extends State<HadethScreen> {
               child: SingleChildScrollView(
                 child: Column(
                   children: [
-                    Text('الحديث رقم ' + (args.hadethNum + 1).toString(),
+                    Text('الحديث رقم ${args.hadethNum + 1}',
                         style: Theme.of(context).textTheme.bodyLarge),
                     Divider(
                       color: Theme.of(context).dividerColor,

@@ -6,6 +6,8 @@ import 'package:islamic_app/models/surahDetailArgs.dart';
 class SurahScreen extends StatefulWidget {
   static const String routeName = 'Surah Screen';
 
+  const SurahScreen({super.key});
+
   @override
   State<SurahScreen> createState() => _SurahScreenState();
 }
@@ -53,7 +55,7 @@ class _SurahScreenState extends State<SurahScreen> {
                     Row(
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
-                        Text('سورة ' + args.surahName,
+                        Text('سورة ${args.surahName}',
                             style: Theme.of(context).textTheme.bodyLarge),
                         const SizedBox(width: 10),
                         IconButton(
