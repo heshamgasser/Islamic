@@ -27,11 +27,12 @@ class _HomeScreenState extends State<HomeScreen> {
     return Stack(
       children: [
         const SizedBox(
-            width: double.infinity,
-            child: Image(
-              image: AssetImage('assets/images/backgroung.png'),
-              fit: BoxFit.cover,
-            )),
+          width: double.infinity,
+          child: Image(
+            image: AssetImage('assets/images/backgroung.png'),
+            fit: BoxFit.cover,
+          ),
+        ),
         Scaffold(
           appBar: AppBar(
             title: Text(
