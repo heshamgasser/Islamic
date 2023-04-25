@@ -1,0 +1,19 @@
+diff a/lib/screens/homeScreen.dart b/lib/screens/homeScreen.dart	(rejected hunks)
+@@ -27,11 +27,12 @@
+     return Stack(
+       children: [
+         const SizedBox(
+-            width: double.infinity,
+-            child: Image(
+-              image: AssetImage('assets/images/backgroung.png'),
+-              fit: BoxFit.cover,
+-            )),
++          width: double.infinity,
++          child: Image(
++            image: AssetImage('assets/images/backgroung.png'),
++            fit: BoxFit.cover,
++          ),
++        ),
+         Scaffold(
+           appBar: AppBar(
+             title: Text(
