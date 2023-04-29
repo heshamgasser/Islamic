@@ -41,7 +41,6 @@ class _SebhaTabState extends State<SebhaTab> {
                 image: const AssetImage('assets/images/sebha_logo.png'),
               ),
             ),
-
           ),
           const Spacer(),
           Text('عدد التسبيحات', style: Theme.of(context).textTheme.bodyMedium),
@@ -52,7 +51,7 @@ class _SebhaTabState extends State<SebhaTab> {
                 counter++;
                 totalCounter++;
                 checkState();
-                rotate += 1 /33;
+                rotate += 1 / 33;
               });
             },
             child: Container(
