@@ -92,4 +92,9 @@ class _HadethScreenState extends State<HadethScreen> {
     hadethContent = lines;
     setState(() {});
   }
+
+
+  void loadingFile (){
+
+  }
 }
