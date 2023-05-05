@@ -7,7 +7,7 @@ class TableWidget extends StatelessWidget {
   String ayahNumber;
   int surahNum;
 
-  TableWidget(this.surahName, this.ayahNumber, this.surahNum, {super.key});
+  TableWidget(this.surahName, this.ayahNumber, this.surahNum);
 
   @override
   Widget build(BuildContext context) {
@@ -15,8 +15,8 @@ class TableWidget extends StatelessWidget {
       textDirection: TextDirection.rtl,
       defaultVerticalAlignment: TableCellVerticalAlignment.middle,
       border: TableBorder(
-        verticalInside:
-            BorderSide(color: Theme.of(context).dividerColor, width: 3),
+        verticalInside: BorderSide(
+            color: Theme.of(context).colorScheme.onSecondary, width: 3),
       ),
       children: [
         TableRow(

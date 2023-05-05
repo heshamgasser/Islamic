@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:islamic_app/themeData/themes.dart';
 import 'package:islamic_app/widgets/tableWidget.dart';
 
 import '../models/contentDetail.dart';
@@ -25,11 +24,12 @@ class QuranTab extends StatelessWidget {
             textDirection: TextDirection.rtl,
             defaultVerticalAlignment: TableCellVerticalAlignment.middle,
             border: TableBorder(
-              verticalInside:
-                  BorderSide(color: Theme.of(context).primaryColor, width: 3),
-              top: BorderSide(color: Theme.of(context).primaryColor, width: 3),
-              bottom:
-                  BorderSide(color: Theme.of(context).primaryColor, width: 3),
+              verticalInside: BorderSide(
+                  color: Theme.of(context).colorScheme.onSecondary, width: 3),
+              top: BorderSide(
+                  color: Theme.of(context).colorScheme.onSecondary, width: 3),
+              bottom: BorderSide(
+                  color: Theme.of(context).colorScheme.onSecondary, width: 3),
             ),
             children: [
               TableRow(

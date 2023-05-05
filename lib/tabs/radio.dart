@@ -21,18 +21,18 @@ class RadioTab extends StatelessWidget {
             IconButton(
                 onPressed: () {},
                 icon: const Icon(Icons.skip_previous_rounded),
-                color: Theme.of(context).primaryColor,
+                color: Theme.of(context).colorScheme.onBackground,
                 iconSize: 40),
             IconButton(
               onPressed: () {},
               icon: const Icon(Icons.play_arrow_rounded),
-              color: Theme.of(context).primaryColor,
+              color: Theme.of(context).colorScheme.onBackground,
               iconSize: 50,
             ),
             IconButton(
               onPressed: () {},
               icon: const Icon(Icons.skip_next_rounded),
-              color: Theme.of(context).primaryColor,
+              color: Theme.of(context).colorScheme.onBackground,
               iconSize: 40,
             ),
           ],
