@@ -47,7 +47,7 @@ class _SebhaTabState extends State<SebhaTab> {
                   top: -75,
                   child: Image(
                     image: const AssetImage('assets/images/sebha_head.png'),
-                    color: Theme.of(context).primaryColor,
+                    color: Theme.of(context).colorScheme.onBackground,
                   ),
                 ),
                 AnimatedRotation(
@@ -55,7 +55,7 @@ class _SebhaTabState extends State<SebhaTab> {
                   duration: Duration(milliseconds: 500),
                   child: Image(
                     image: const AssetImage('assets/images/sebha_body.png'),
-                    color: Theme.of(context).primaryColor,
+                    color: Theme.of(context).colorScheme.onBackground,
                   ),
                 ),
               ],
@@ -102,7 +102,7 @@ class _SebhaTabState extends State<SebhaTab> {
             width: MediaQuery.of(context).size.width * .5,
             height: MediaQuery.of(context).size.height * .07,
             decoration: BoxDecoration(
-              color: Theme.of(context).primaryColor,
+              color: Theme.of(context).colorScheme.onBackground,
               borderRadius: BorderRadius.circular(25),
             ),
             child: Center(
