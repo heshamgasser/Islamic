@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:google_fonts/google_fonts.dart';
 import 'package:islamic_app/models/surahDetailArgs.dart';
 
 class SurahScreen extends StatefulWidget {
@@ -49,7 +48,7 @@ class _SurahScreenState extends State<SurahScreen> {
               width: double.infinity,
               decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(20),
-                color: Colors.white.withOpacity(.6),
+                color: Theme.of(context).colorScheme.surface,
               ),
               child: SingleChildScrollView(
                 child: Column(
@@ -57,21 +56,28 @@ class _SurahScreenState extends State<SurahScreen> {
                     Row(
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
-                        Text('سورة ${args.surahName}',
-                            style: Theme.of(context).textTheme.bodyLarge),
+                        Text(
+                          'سورة ${args.surahName}',
+                          style: Theme.of(context)
+                              .textTheme
+                              .bodyLarge
+                              ?.copyWith(
+                                  color:
+                                      Theme.of(context).colorScheme.onSurface),
+                        ),
                         const SizedBox(width: 10),
                         IconButton(
                           onPressed: () {},
-                          icon: const Icon(
+                          icon: Icon(
                             Icons.play_circle_fill_rounded,
-                            color: Colors.black,
+                            color: Theme.of(context).colorScheme.onSurface,
                             size: 40,
                           ),
                         ),
                       ],
                     ),
                     Divider(
-                      color: Theme.of(context).dividerColor,
+                      color: Theme.of(context).colorScheme.onSecondary,
                       thickness: 2,
                       indent: 40,
                       endIndent: 40,
@@ -84,8 +90,14 @@ class _SurahScreenState extends State<SurahScreen> {
                           textDirection: TextDirection.rtl,
                           child: Text(
                             surahContent[index],
-                            style: GoogleFonts.notoKufiArabic(
-                                fontSize: 20, color: Colors.black),
+                            style: Theme.of(context)
+                                .textTheme
+                                .bodyLarge
+                                ?.copyWith(
+                                    fontSize: 20,
+                                    color: Theme.of(context)
+                                        .colorScheme
+                                        .onSurface),
                           ),
                         );
                       },
