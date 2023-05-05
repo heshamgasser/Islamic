@@ -19,7 +19,8 @@ class _HomeScreenState extends State<HomeScreen> {
     const RadioTab(),
     const SebhaTab(),
     const AhadethTab(),
-    const QuranTab()
+    const QuranTab(),
+    SebhaTab(),
   ];
 
   @override
