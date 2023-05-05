@@ -7,7 +7,7 @@ class TableWidget extends StatelessWidget {
   String ayahNumber;
   int surahNum;
 
-  TableWidget(this.surahName, this.ayahNumber, this.surahNum);
+  TableWidget(this.surahName, this.ayahNumber, this.surahNum, {super.key});
 
   @override
   Widget build(BuildContext context) {

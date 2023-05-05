@@ -5,6 +5,8 @@ import 'package:islamic_app/screens/hadethScreen.dart';
 import '../models/ahadethContent.dart';
 
 class AhadethTab extends StatefulWidget {
+  const AhadethTab({super.key});
+
   @override
   State<AhadethTab> createState() => _AhadethTabState();
 }

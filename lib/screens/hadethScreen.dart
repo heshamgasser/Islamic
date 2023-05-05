@@ -7,6 +7,8 @@ class HadethScreen extends StatelessWidget {
 
   List<String> hadethContent = [];
 
+  HadethScreen({super.key});
+
   @override
   Widget build(BuildContext context) {
     // var args = ModalRoute.of(context)?.settings.arguments as HadethDetailArgs;

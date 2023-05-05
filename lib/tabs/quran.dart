@@ -16,7 +16,7 @@ class QuranTab extends StatelessWidget {
         children: [
           Image(
             height: MediaQuery.of(context).size.height / 3,
-            image: AssetImage('assets/images/quran.png'),
+            image: const AssetImage('assets/images/quran.png'),
           ),
           const SizedBox(height: 10),
 
