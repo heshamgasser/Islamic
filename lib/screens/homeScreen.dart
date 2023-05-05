@@ -26,10 +26,12 @@ class _HomeScreenState extends State<HomeScreen> {
   Widget build(BuildContext context) {
     return Stack(
       children: [
-        const SizedBox(
+        SizedBox(
           width: double.infinity,
           child: Image(
-            image: AssetImage('assets/images/backgroung.png'),
+            image: AssetImage(Theme.of(context).brightness == Brightness.light
+                ? 'assets/images/backgroung.png'
+                : 'assets/images/darkBackground.png'),
             fit: BoxFit.cover,
           ),
         ),

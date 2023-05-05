@@ -22,7 +22,7 @@ class IslamicApp extends StatelessWidget {
       routes: {
         HomeScreen.routeName: (context) => const HomeScreen(),
         SurahScreen.routeName: (context) => const SurahScreen(),
-        HadethScreen.routeName: (context) => const HadethScreen(),
+        HadethScreen.routeName: (context) => HadethScreen(),
       },
     );
   }

@@ -4,9 +4,21 @@ import 'package:google_fonts/google_fonts.dart';
 class MyThemeData {
   static const Color kPrimaryColor = Color(0xFFB7935F);
 
-  static const Color kDarkPrimaryColor = Color(0xFFFACC1D);
+  static const Color kDarkPrimaryColor = Color(0xFF141A2E);
 
   static ThemeData lightTheme = ThemeData(
+      colorScheme: ColorScheme(
+          brightness: Brightness.light,
+          primary: const Color(0xFFd6d5d5),
+          onPrimary: const Color(0xFFB7935F),
+          secondary: const Color(0xFFB7935F),
+          onSecondary: const Color(0xFFB7935F),
+          error: Colors.red,
+          onError: Colors.red,
+          background: Colors.white,
+          onBackground: const Color(0xFFB7935F),
+          surface: Colors.white.withOpacity(.6),
+          onSurface: Colors.black),
       brightness: Brightness.light,
       primaryColor: kPrimaryColor,
       dividerColor: kPrimaryColor,
@@ -49,9 +61,21 @@ class MyThemeData {
       splashColor: Colors.transparent);
 
   static ThemeData darkTheme = ThemeData(
+      colorScheme: ColorScheme(
+          brightness: Brightness.dark,
+          primary: const Color(0xFF141A2E),
+          onPrimary: const Color(0xFFFACC1D),
+          secondary: const Color(0xFFB7935F),
+          onSecondary: const Color(0xFFFACC1D),
+          error: Colors.red,
+          onError: Colors.red,
+          background: Colors.white,
+          onBackground: const Color(0xFFFACC1D),
+          surface: const Color(0xFF141A2E).withOpacity(0.6),
+          onSurface: const Color(0xFFFACC1D)),
       brightness: Brightness.dark,
       primaryColor: kDarkPrimaryColor,
-      dividerColor: kDarkPrimaryColor,
+      dividerColor: Colors.white,
       scaffoldBackgroundColor: Colors.transparent,
       textTheme: TextTheme(
         titleLarge: const TextStyle(

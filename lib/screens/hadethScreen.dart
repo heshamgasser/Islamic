@@ -1,34 +1,29 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
-import 'package:google_fonts/google_fonts.dart';
-import 'package:islamic_app/models/hadethDetailArgs.dart';
 
-class HadethScreen extends StatefulWidget {
+import '../models/ahadethContent.dart';
+
+class HadethScreen extends StatelessWidget {
   static const String routeName = 'Hadeth Screen';
 
-  const HadethScreen({super.key});
-
-  @override
-  State<HadethScreen> createState() => _HadethScreenState();
-}
-
-class _HadethScreenState extends State<HadethScreen> {
   List<String> hadethContent = [];
+
+  HadethScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
-    var args = ModalRoute.of(context)?.settings.arguments as HadethDetailArgs;
+    // var args = ModalRoute.of(context)?.settings.arguments as HadethDetailArgs;
 
-    if (hadethContent.isEmpty) {
-      loadFile(args.hadethNum);
-    }
+    var hadeethaArgs =
+        ModalRoute.of(context)?.settings.arguments as AhadethContent;
 
     return Stack(
       children: [
-        const SizedBox(
+        SizedBox(
           width: double.infinity,
           child: Image(
-            image: AssetImage('assets/images/backgroung.png'),
+            image: AssetImage(Theme.of(context).brightness == Brightness.light
+                ? 'assets/images/backgroung.png'
+                : 'assets/images/darkBackground.png'),
             fit: BoxFit.cover,
           ),
         ),
@@ -47,34 +42,31 @@ class _HadethScreenState extends State<HadethScreen> {
               width: double.infinity,
               decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(20),
-                color: Colors.white.withOpacity(.6),
+                color: Theme.of(context).colorScheme.surface,
               ),
               child: SingleChildScrollView(
                 child: Column(
                   children: [
-                    Text('الحديث رقم ${args.hadethNum + 1}',
-                        style: Theme.of(context).textTheme.bodyLarge),
+                    Text(
+                      hadeethaArgs.title,
+                      style: Theme.of(context).textTheme.bodyLarge?.copyWith(
+                          color: Theme.of(context).colorScheme.onSurface),
+                    ),
                     Divider(
-                      color: Theme.of(context).dividerColor,
+                      color: Theme.of(context).colorScheme.onPrimary,
                       thickness: 3,
                       indent: 40,
                       endIndent: 40,
                     ),
-                    ListView.builder(
-                      physics: const NeverScrollableScrollPhysics(),
-                      shrinkWrap: true,
-                      itemCount: hadethContent.length,
-                      itemBuilder: (context, index) {
-                        return Directionality(
-                          textDirection: TextDirection.rtl,
-                          child: Text(
-                            hadethContent[index],
-                            style: GoogleFonts.notoKufiArabic(
-                                fontSize: 20, color: Colors.black),
-                          ),
-                        );
-                      },
-                    )
+                    Directionality(
+                      textDirection: TextDirection.rtl,
+                      child: Text(
+                        hadeethaArgs.content,
+                        style: Theme.of(context).textTheme.bodyLarge?.copyWith(
+                            fontSize: 20,
+                            color: Theme.of(context).colorScheme.onSurface),
+                      ),
+                    ),
                   ],
                 ),
               ),
@@ -83,18 +75,5 @@ class _HadethScreenState extends State<HadethScreen> {
         ),
       ],
     );
-  }
-
-  void loadFile(int indexValue) async {
-    String hadeth =
-        await rootBundle.loadString('assets/hadeth/h${indexValue + 1}.txt');
-    List<String> lines = hadeth.split('\n');
-    hadethContent = lines;
-    setState(() {});
-  }
-
-
-  void loadingFile (){
-
   }
 }
