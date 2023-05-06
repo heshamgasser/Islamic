@@ -1,11 +1,16 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+import 'package:flutter_localizations/flutter_localizations.dart';
+import 'package:islamic_app/providers/app_provider.dart';
 import 'package:islamic_app/screens/hadethScreen.dart';
 import 'package:islamic_app/screens/homeScreen.dart';
 import 'package:islamic_app/screens/surahScreen.dart';
 import 'package:islamic_app/themeData/themes.dart';
+import 'package:provider/provider.dart';
 
 void main() {
-  runApp(const IslamicApp());
+  runApp(ChangeNotifierProvider(
+      create: (context) => AppProvider(), child: const IslamicApp()));
 }
 
 class IslamicApp extends StatelessWidget {
@@ -13,10 +18,23 @@ class IslamicApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    var provider = Provider.of<AppProvider>(context);
+
     return MaterialApp(
       darkTheme: MyThemeData.darkTheme,
       theme: MyThemeData.lightTheme,
-      themeMode: ThemeMode.system,
+      themeMode: provider.themeMode,
+      localizationsDelegates: [
+        AppLocalizations.delegate, // Add this line
+        GlobalMaterialLocalizations.delegate,
+        GlobalWidgetsLocalizations.delegate,
+        GlobalCupertinoLocalizations.delegate,
+      ],
+      supportedLocales: [
+        Locale('en'), // English
+        Locale('ar'), // Arabic
+      ],
+      locale: Locale(provider.language),
       debugShowCheckedModeBanner: false,
       initialRoute: HomeScreen.routeName,
       routes: {

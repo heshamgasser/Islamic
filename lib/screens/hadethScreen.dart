@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 import '../models/ahadethContent.dart';
 
@@ -30,7 +31,7 @@ class HadethScreen extends StatelessWidget {
         Scaffold(
           appBar: AppBar(
             title: Text(
-              'إسلامي',
+              AppLocalizations.of(context)!.appTitle,
               style: Theme.of(context).textTheme.titleLarge,
             ),
           ),

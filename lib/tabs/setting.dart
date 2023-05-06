@@ -1,4 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+import 'package:islamic_app/widgets/themeBottomSheet.dart';
+
+import '../widgets/languageBottomSheet.dart';
 
 class SettingTab extends StatelessWidget {
   const SettingTab({Key? key}) : super(key: key);
@@ -10,84 +14,48 @@ class SettingTab extends StatelessWidget {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.stretch,
         children: [
-          Directionality(
-            textDirection: TextDirection.rtl,
-            child: Text(
-              'اللغة',
-              style: Theme.of(context).textTheme.bodyLarge,
-            ),
+          Text(
+            AppLocalizations.of(context)!.language,
+            style: Theme.of(context).textTheme.bodyLarge,
           ),
           SizedBox(height: 10),
           InkWell(
             onTap: () {
-              showModalBottomSheet(
-                context: context,
-                builder: (context) {
-                  return Container(
-                    decoration: BoxDecoration(
-                      borderRadius: BorderRadius.only(
-                        topRight: Radius.circular(20),
-                        topLeft: Radius.circular(20),
-                      ),
-                    ),
-                  );
-                },
-              );
+              languageBottomSheet(context);
             },
             child: Container(
-              padding: EdgeInsets.symmetric(horizontal: 20),
+              padding: EdgeInsets.symmetric(horizontal: 20, vertical: 10),
               decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(20),
                 border: Border.all(
                     color: Theme.of(context).colorScheme.onBackground),
               ),
-              child: Directionality(
-                textDirection: TextDirection.rtl,
-                child: Text(
-                  'العربية',
-                  style: Theme.of(context).textTheme.bodyMedium,
-                ),
+              child: Text(
+                'العربية',
+                style: Theme.of(context).textTheme.bodyMedium,
               ),
             ),
           ),
           SizedBox(height: 10),
-          Directionality(
-            textDirection: TextDirection.rtl,
-            child: Text(
-              'المظهر',
-              style: Theme.of(context).textTheme.bodyLarge,
-            ),
+          Text(
+            AppLocalizations.of(context)!.theme,
+            style: Theme.of(context).textTheme.bodyLarge,
           ),
           SizedBox(height: 10),
           InkWell(
             onTap: () {
-              showModalBottomSheet(
-                context: context,
-                builder: (context) {
-                  return Container(
-                    decoration: BoxDecoration(
-                      borderRadius: BorderRadius.only(
-                        topRight: Radius.circular(20),
-                        topLeft: Radius.circular(20),
-                      ),
-                    ),
-                  );
-                },
-              );
+              themeBottomSheet(context);
             },
             child: Container(
-              padding: EdgeInsets.symmetric(horizontal: 20),
+              padding: EdgeInsets.symmetric(horizontal: 20, vertical: 10),
               decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(20),
                 border: Border.all(
                     color: Theme.of(context).colorScheme.onBackground),
               ),
-              child: Directionality(
-                textDirection: TextDirection.rtl,
-                child: Text(
-                  'فاتح',
-                  style: Theme.of(context).textTheme.bodyMedium,
-                ),
+              child: Text(
+                'فاتح',
+                style: Theme.of(context).textTheme.bodyMedium,
               ),
             ),
           ),
@@ -110,6 +78,24 @@ class SettingTab extends StatelessWidget {
           // },),
         ],
       ),
+    );
+  }
+
+  void languageBottomSheet(BuildContext context) {
+    showModalBottomSheet(
+      context: context,
+      builder: (context) {
+        return LanguageBottomSheet();
+      },
+    );
+  }
+
+  void themeBottomSheet(BuildContext context) {
+    showModalBottomSheet(
+      context: context,
+      builder: (context) {
+        return ThemeBottomSheet();
+      },
     );
   }
 }
