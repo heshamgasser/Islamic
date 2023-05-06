@@ -3,6 +3,7 @@ import 'package:islamic_app/tabs/ahadeth.dart';
 import 'package:islamic_app/tabs/quran.dart';
 import 'package:islamic_app/tabs/radio.dart';
 import 'package:islamic_app/tabs/sebha.dart';
+import 'package:islamic_app/tabs/setting.dart';
 
 class HomeScreen extends StatefulWidget {
   static const String routeName = 'Home Screen';
@@ -14,13 +15,13 @@ class HomeScreen extends StatefulWidget {
 }
 
 class _HomeScreenState extends State<HomeScreen> {
-  int index = 3;
+  int index = 4;
   List<Widget> tabs = [
+    SettingTab(),
     const RadioTab(),
     const SebhaTab(),
     const AhadethTab(),
     const QuranTab(),
-    SebhaTab(),
   ];
 
   @override
@@ -52,6 +53,12 @@ class _HomeScreenState extends State<HomeScreen> {
               });
             },
             items: [
+              BottomNavigationBarItem(
+                  icon: Icon(Icons.settings),
+                  label: 'الإعدادات',
+                  backgroundColor: Theme.of(context)
+                      .bottomNavigationBarTheme
+                      .backgroundColor),
               BottomNavigationBarItem(
                   icon: const ImageIcon(
                     AssetImage('assets/images/radio.png'),
