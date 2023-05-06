@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:islamic_app/widgets/tableWidget.dart';
 
 import '../models/contentDetail.dart';
@@ -35,12 +36,12 @@ class QuranTab extends StatelessWidget {
               TableRow(
                 children: [
                   Text(
-                    'اسم السورة',
+                    AppLocalizations.of(context)!.surahNames,
                     textAlign: TextAlign.center,
                     style: Theme.of(context).textTheme.bodyMedium,
                   ),
                   Text(
-                    'عدد الآيات',
+                    AppLocalizations.of(context)!.ayatNo,
                     textAlign: TextAlign.center,
                     style: Theme.of(context).textTheme.bodyMedium,
                   ),
