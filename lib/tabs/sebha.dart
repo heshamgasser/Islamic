@@ -29,7 +29,7 @@ class _SebhaTabState extends State<SebhaTab> {
 
   @override
   Widget build(BuildContext context) {
-    var surahProvider = Provider.of<AppProvider>(context);
+    var sebhaProvider = Provider.of<AppProvider>(context);
 
     return Center(
       child: Column(
@@ -142,6 +142,13 @@ class _SebhaTabState extends State<SebhaTab> {
                         key: formKey,
                         child: Column(
                           children: [
+                            Text(
+                              sebhaProvider.language == 'en'
+                                  ? 'Add New Item'
+                                  : 'إضافة ذكر جديد',
+                              style: Theme.of(context).textTheme.titleLarge,
+                            ),
+                            SizedBox(height: 20),
                             TasbehTextFormFeild(controller: controller),
                             const SizedBox(height: 20),
                             Row(
@@ -166,7 +173,7 @@ class _SebhaTabState extends State<SebhaTab> {
                                             .showSnackBar(
                                           SnackBar(
                                             content: Text(
-                                              surahProvider.language == 'en'
+                                              sebhaProvider.language == 'en'
                                                   ? 'Add Successfully'
                                                   : 'تمت الإضافة بنجاح',
                                               style: Theme.of(context)
@@ -179,7 +186,7 @@ class _SebhaTabState extends State<SebhaTab> {
                                       }
                                     },
                                     child: Text(
-                                      surahProvider.language == 'en'
+                                      sebhaProvider.language == 'en'
                                           ? 'Add'
                                           : 'إضافة',
                                       style: Theme.of(context)
@@ -204,7 +211,7 @@ class _SebhaTabState extends State<SebhaTab> {
                                       Navigator.pop(context);
                                     },
                                     child: Text(
-                                      surahProvider.language == 'en'
+                                      sebhaProvider.language == 'en'
                                           ? 'Cancel'
                                           : 'إلغاء',
                                       style: Theme.of(context)
@@ -223,7 +230,7 @@ class _SebhaTabState extends State<SebhaTab> {
                 );
               },
               child: Text(
-                surahProvider.language == 'en' ? 'Add New item' : 'إضافة أذكار',
+                sebhaProvider.language == 'en' ? 'Add New item' : 'إضافة أذكار',
                 style: Theme.of(context).textTheme.bodySmall,
               ),
             ),
