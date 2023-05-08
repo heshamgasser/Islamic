@@ -101,18 +101,19 @@ class _SurahScreenState extends State<SurahScreen> {
                                     .textTheme
                                     .bodyLarge
                                     ?.copyWith(
-                                        fontSize: 25,
+                                        fontSize: 20,
                                         color: Theme.of(context)
                                             .colorScheme
                                             .onSurface),
                               ),
                               TextSpan(
-                                  text: '\u06dd${index + 1}',
-                                  style: GoogleFonts.amiri(
-                                      color: Theme.of(context)
-                                          .colorScheme
-                                          .onBackground,
-                                      fontSize: 40)),
+                                text: '\u06dd${index + 1}',
+                                style: GoogleFonts.amiri(
+                                    color: Theme.of(context)
+                                        .colorScheme
+                                        .onBackground,
+                                    fontSize: 20),
+                              ),
                             ],
                           ),
                         );
