@@ -27,7 +27,7 @@ class LanguageBottomSheet extends StatelessWidget {
                           ? Theme.of(context).colorScheme.onPrimary
                           : Colors.black),
                 ),
-                Spacer(),
+                const Spacer(),
                 Visibility(
                     visible: changeLanguage.language == 'en' ? true : false,
                     child: Icon(
@@ -40,7 +40,7 @@ class LanguageBottomSheet extends StatelessWidget {
               ],
             ),
           ),
-          SizedBox(height: 10),
+          const SizedBox(height: 10),
           InkWell(
             onTap: () {
               changeLanguage.changeLanguage('ar');
@@ -54,7 +54,7 @@ class LanguageBottomSheet extends StatelessWidget {
                           ? Theme.of(context).colorScheme.onPrimary
                           : Colors.black),
                 ),
-                Spacer(),
+                const Spacer(),
                 Visibility(
                     visible: changeLanguage.language == 'ar' ? true : false,
                     child: Icon(

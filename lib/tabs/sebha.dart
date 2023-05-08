@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:islamic_app/providers/app_provider.dart';
+import 'package:islamic_app/widgets/tasbehTextFormFeild.dart';
+import 'package:provider/provider.dart';
 
 class SebhaTab extends StatefulWidget {
   const SebhaTab({Key? key}) : super(key: key);
@@ -13,6 +16,7 @@ class _SebhaTabState extends State<SebhaTab> {
   int totalCounter = 0;
   String tashbeeh = 'سبحان الله';
   double rotate = 0;
+  TextEditingController controller = TextEditingController();
 
   List<String> tasbeehItem = [
     'سبحان الله',
@@ -21,8 +25,12 @@ class _SebhaTabState extends State<SebhaTab> {
     'لا اله الا الله'
   ];
 
+  GlobalKey<FormState> formKey = GlobalKey();
+
   @override
   Widget build(BuildContext context) {
+    var surahProvider = Provider.of<AppProvider>(context);
+
     return Center(
       child: Column(
         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
@@ -52,7 +60,7 @@ class _SebhaTabState extends State<SebhaTab> {
                 ),
                 AnimatedRotation(
                   turns: rotate,
-                  duration: Duration(milliseconds: 500),
+                  duration: const Duration(milliseconds: 500),
                   child: Image(
                     image: const AssetImage('assets/images/sebha_body.png'),
                     color: Theme.of(context).colorScheme.onBackground,
@@ -112,20 +120,106 @@ class _SebhaTabState extends State<SebhaTab> {
               ),
             ),
           ),
-          // Spacer(),
-          // ElevatedButton(
-          //   style: ElevatedButton.styleFrom(
-          //       backgroundColor: Theme.of(context).colorScheme.onPrimary,
-          //       shape: RoundedRectangleBorder(
-          //         borderRadius: BorderRadius.circular(20),
-          //       ),
-          //       padding: EdgeInsets.symmetric(horizontal: 30, vertical: 10)),
-          //   onPressed: () {},
-          //   child: Text(
-          //     'إضافة أذكار',
-          //     style: Theme.of(context).textTheme.bodySmall,
-          //   ),
-          // ),
+          const Spacer(),
+          ElevatedButton(
+            style: ElevatedButton.styleFrom(
+                backgroundColor: Theme.of(context).colorScheme.onPrimary,
+                shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(20),
+                ),
+                padding:
+                    const EdgeInsets.symmetric(horizontal: 30, vertical: 10)),
+            onPressed: () {
+              showModalBottomSheet(
+                context: context,
+                builder: (context) {
+                  return Padding(
+                    padding: const EdgeInsets.all(20.0),
+                    child: Form(
+                      key: formKey,
+                      child: Column(
+                        children: [
+                          TasbehTextFormFeild(controller: controller),
+                          const SizedBox(height: 20),
+                          Row(
+                            children: [
+                              Expanded(
+                                child: ElevatedButton(
+                                  style: ElevatedButton.styleFrom(
+                                      shape: RoundedRectangleBorder(
+                                        borderRadius: BorderRadius.circular(20),
+                                      ),
+                                      backgroundColor: Theme.of(context)
+                                          .colorScheme
+                                          .onPrimary,
+                                      padding: const EdgeInsets.symmetric(
+                                          vertical: 15)),
+                                  onPressed: () {
+                                    if (formKey.currentState!.validate()) {
+                                      tasbeehItem.add(controller.text);
+                                      controller.text = '';
+                                      ScaffoldMessenger.of(context)
+                                          .showSnackBar(
+                                        SnackBar(
+                                          content: Text(
+                                            surahProvider.language == 'en'
+                                                ? 'Add Successfully'
+                                                : 'تمت الإضافة بنجاح',
+                                            style: Theme.of(context)
+                                                .textTheme
+                                                .bodySmall,
+                                          ),
+                                        ),
+                                      );
+                                      Navigator.pop(context);
+                                    }
+                                  },
+                                  child: Text(
+                                    surahProvider.language == 'en'
+                                        ? 'Add'
+                                        : 'إضافة',
+                                    style:
+                                        Theme.of(context).textTheme.bodyMedium,
+                                  ),
+                                ),
+                              ),
+                              const SizedBox(width: 10),
+                              Expanded(
+                                child: ElevatedButton(
+                                  style: ElevatedButton.styleFrom(
+                                      shape: RoundedRectangleBorder(
+                                        borderRadius: BorderRadius.circular(20),
+                                      ),
+                                      backgroundColor:
+                                          Theme.of(context).colorScheme.error,
+                                      padding: const EdgeInsets.symmetric(
+                                          vertical: 15)),
+                                  onPressed: () {
+                                    Navigator.pop(context);
+                                  },
+                                  child: Text(
+                                    surahProvider.language == 'en'
+                                        ? 'Cancel'
+                                        : 'إلغاء',
+                                    style:
+                                        Theme.of(context).textTheme.bodyMedium,
+                                  ),
+                                ),
+                              ),
+                            ],
+                          ),
+                        ],
+                      ),
+                    ),
+                  );
+                },
+              );
+            },
+            child: Text(
+              surahProvider.language == 'en' ? 'Add New item' : 'إضافة أذكار',
+              style: Theme.of(context).textTheme.bodySmall,
+            ),
+          ),
           const Spacer(flex: 4),
         ],
       ),
@@ -163,8 +257,4 @@ class _SebhaTabState extends State<SebhaTab> {
       }
     });
   }
-
-// void addTasbeeh (){
-//
-// }
 }

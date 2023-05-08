@@ -22,7 +22,7 @@ class _HomeScreenState extends State<HomeScreen> {
     const AhadethTab(),
     const SebhaTab(),
     const RadioTab(),
-    SettingTab(),
+    const SettingTab(),
   ];
 
   @override
@@ -87,7 +87,7 @@ class _HomeScreenState extends State<HomeScreen> {
                       .bottomNavigationBarTheme
                       .backgroundColor),
               BottomNavigationBarItem(
-                  icon: Icon(Icons.settings),
+                  icon: const Icon(Icons.settings),
                   label: AppLocalizations.of(context)!.setting,
                   backgroundColor: Theme.of(context)
                       .bottomNavigationBarTheme
