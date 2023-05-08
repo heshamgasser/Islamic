@@ -112,7 +112,7 @@ class _SurahScreenState extends State<SurahScreen> {
                                     color: Theme.of(context)
                                         .colorScheme
                                         .onBackground,
-                                    fontSize: 20),
+                                    fontSize: 30),
                               ),
                             ],
                           ),
