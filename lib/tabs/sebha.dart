@@ -112,6 +112,20 @@ class _SebhaTabState extends State<SebhaTab> {
               ),
             ),
           ),
+          // Spacer(),
+          // ElevatedButton(
+          //   style: ElevatedButton.styleFrom(
+          //       backgroundColor: Theme.of(context).colorScheme.onPrimary,
+          //       shape: RoundedRectangleBorder(
+          //         borderRadius: BorderRadius.circular(20),
+          //       ),
+          //       padding: EdgeInsets.symmetric(horizontal: 30, vertical: 10)),
+          //   onPressed: () {},
+          //   child: Text(
+          //     'إضافة أذكار',
+          //     style: Theme.of(context).textTheme.bodySmall,
+          //   ),
+          // ),
           const Spacer(flex: 4),
         ],
       ),
@@ -149,4 +163,8 @@ class _SebhaTabState extends State<SebhaTab> {
       }
     });
   }
+
+// void addTasbeeh (){
+//
+// }
 }
