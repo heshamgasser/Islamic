@@ -30,7 +30,7 @@ class ThemeBottomSheet extends StatelessWidget {
                           .bodyMedium
                           ?.copyWith(color: Colors.black),
                 ),
-                Spacer(),
+                const Spacer(),
                 Visibility(
                     visible:
                         themeChange.themeMode == ThemeMode.light ? true : false,
@@ -44,7 +44,7 @@ class ThemeBottomSheet extends StatelessWidget {
               ],
             ),
           ),
-          SizedBox(height: 10),
+          const SizedBox(height: 10),
           InkWell(
             onTap: () {
               themeChange.changeTheme(ThemeMode.dark);
@@ -61,7 +61,7 @@ class ThemeBottomSheet extends StatelessWidget {
                           .bodyMedium
                           ?.copyWith(color: Colors.black),
                 ),
-                Spacer(),
+                const Spacer(),
                 Visibility(
                   visible:
                       themeChange.themeMode == ThemeMode.dark ? true : false,

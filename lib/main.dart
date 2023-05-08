@@ -24,13 +24,13 @@ class IslamicApp extends StatelessWidget {
       darkTheme: MyThemeData.darkTheme,
       theme: MyThemeData.lightTheme,
       themeMode: provider.themeMode,
-      localizationsDelegates: [
+      localizationsDelegates: const [
         AppLocalizations.delegate, // Add this line
         GlobalMaterialLocalizations.delegate,
         GlobalWidgetsLocalizations.delegate,
         GlobalCupertinoLocalizations.delegate,
       ],
-      supportedLocales: [
+      supportedLocales: const [
         Locale('en'), // English
         Locale('ar'), // Arabic
       ],

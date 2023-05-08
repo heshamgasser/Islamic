@@ -21,13 +21,13 @@ class SettingTab extends StatelessWidget {
             AppLocalizations.of(context)!.language,
             style: Theme.of(context).textTheme.bodyLarge,
           ),
-          SizedBox(height: 10),
+          const SizedBox(height: 10),
           InkWell(
             onTap: () {
               languageBottomSheet(context);
             },
             child: Container(
-              padding: EdgeInsets.symmetric(horizontal: 20, vertical: 10),
+              padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 10),
               decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(20),
                 border: Border.all(
@@ -39,18 +39,18 @@ class SettingTab extends StatelessWidget {
               ),
             ),
           ),
-          SizedBox(height: 10),
+          const SizedBox(height: 10),
           Text(
             AppLocalizations.of(context)!.theme,
             style: Theme.of(context).textTheme.bodyLarge,
           ),
-          SizedBox(height: 10),
+          const SizedBox(height: 10),
           InkWell(
             onTap: () {
               themeBottomSheet(context);
             },
             child: Container(
-              padding: EdgeInsets.symmetric(horizontal: 20, vertical: 10),
+              padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 10),
               decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(20),
                 border: Border.all(
@@ -94,7 +94,7 @@ class SettingTab extends StatelessWidget {
     showModalBottomSheet(
       context: context,
       builder: (context) {
-        return LanguageBottomSheet();
+        return const LanguageBottomSheet();
       },
     );
   }
@@ -103,7 +103,7 @@ class SettingTab extends StatelessWidget {
     showModalBottomSheet(
       context: context,
       builder: (context) {
-        return ThemeBottomSheet();
+        return const ThemeBottomSheet();
       },
     );
   }

@@ -96,7 +96,7 @@ class _SurahScreenState extends State<SurahScreen> {
                           text: TextSpan(
                             children: [
                               TextSpan(
-                                text: '${surahContent[index]}',
+                                text: surahContent[index],
                                 style: Theme.of(context)
                                     .textTheme
                                     .bodyLarge
