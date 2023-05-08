@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+import 'package:islamic_app/providers/app_provider.dart';
 import 'package:islamic_app/widgets/themeBottomSheet.dart';
+import 'package:provider/provider.dart';
 
 import '../widgets/languageBottomSheet.dart';
 
@@ -9,8 +11,9 @@ class SettingTab extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    var dataProvider = Provider.of<AppProvider>(context);
     return Padding(
-      padding: const EdgeInsets.all(20.0),
+      padding: const EdgeInsets.all(10.0),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.stretch,
         children: [
@@ -31,7 +34,7 @@ class SettingTab extends StatelessWidget {
                     color: Theme.of(context).colorScheme.onBackground),
               ),
               child: Text(
-                'العربية',
+                dataProvider.language == 'en' ? 'English' : 'العربية',
                 style: Theme.of(context).textTheme.bodyMedium,
               ),
             ),
@@ -54,7 +57,13 @@ class SettingTab extends StatelessWidget {
                     color: Theme.of(context).colorScheme.onBackground),
               ),
               child: Text(
-                'فاتح',
+                dataProvider.language == 'en'
+                    ? dataProvider.themeMode == ThemeMode.light
+                        ? 'Light'
+                        : 'Dark'
+                    : dataProvider.themeMode == ThemeMode.light
+                        ? 'فاتح'
+                        : 'داكن',
                 style: Theme.of(context).textTheme.bodyMedium,
               ),
             ),
