@@ -121,103 +121,111 @@ class _SebhaTabState extends State<SebhaTab> {
             ),
           ),
           const Spacer(),
-          ElevatedButton(
-            style: ElevatedButton.styleFrom(
-                backgroundColor: Theme.of(context).colorScheme.onPrimary,
-                shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(20),
-                ),
-                padding:
-                    const EdgeInsets.symmetric(horizontal: 30, vertical: 10)),
-            onPressed: () {
-              showModalBottomSheet(
-                context: context,
-                builder: (context) {
-                  return Padding(
-                    padding: const EdgeInsets.all(20.0),
-                    child: Form(
-                      key: formKey,
-                      child: Column(
-                        children: [
-                          TasbehTextFormFeild(controller: controller),
-                          const SizedBox(height: 20),
-                          Row(
-                            children: [
-                              Expanded(
-                                child: ElevatedButton(
-                                  style: ElevatedButton.styleFrom(
-                                      shape: RoundedRectangleBorder(
-                                        borderRadius: BorderRadius.circular(20),
-                                      ),
-                                      backgroundColor: Theme.of(context)
-                                          .colorScheme
-                                          .onPrimary,
-                                      padding: const EdgeInsets.symmetric(
-                                          vertical: 15)),
-                                  onPressed: () {
-                                    if (formKey.currentState!.validate()) {
-                                      tasbeehItem.add(controller.text);
-                                      controller.text = '';
-                                      ScaffoldMessenger.of(context)
-                                          .showSnackBar(
-                                        SnackBar(
-                                          content: Text(
-                                            surahProvider.language == 'en'
-                                                ? 'Add Successfully'
-                                                : 'تمت الإضافة بنجاح',
-                                            style: Theme.of(context)
-                                                .textTheme
-                                                .bodySmall,
-                                          ),
+          Container(
+            width: MediaQuery.of(context).size.width * .5,
+            height: MediaQuery.of(context).size.height * .07,
+            child: ElevatedButton(
+              style: ElevatedButton.styleFrom(
+                  backgroundColor: Theme.of(context).colorScheme.onPrimary,
+                  shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(20),
+                  ),
+                  padding:
+                      const EdgeInsets.symmetric(horizontal: 30, vertical: 10)),
+              onPressed: () {
+                showModalBottomSheet(
+                  context: context,
+                  builder: (context) {
+                    return Padding(
+                      padding: const EdgeInsets.all(20.0),
+                      child: Form(
+                        key: formKey,
+                        child: Column(
+                          children: [
+                            TasbehTextFormFeild(controller: controller),
+                            const SizedBox(height: 20),
+                            Row(
+                              children: [
+                                Expanded(
+                                  child: ElevatedButton(
+                                    style: ElevatedButton.styleFrom(
+                                        shape: RoundedRectangleBorder(
+                                          borderRadius:
+                                              BorderRadius.circular(20),
                                         ),
-                                      );
+                                        backgroundColor: Theme.of(context)
+                                            .colorScheme
+                                            .onPrimary,
+                                        padding: const EdgeInsets.symmetric(
+                                            vertical: 15)),
+                                    onPressed: () {
+                                      if (formKey.currentState!.validate()) {
+                                        tasbeehItem.add(controller.text);
+                                        controller.text = '';
+                                        ScaffoldMessenger.of(context)
+                                            .showSnackBar(
+                                          SnackBar(
+                                            content: Text(
+                                              surahProvider.language == 'en'
+                                                  ? 'Add Successfully'
+                                                  : 'تمت الإضافة بنجاح',
+                                              style: Theme.of(context)
+                                                  .textTheme
+                                                  .bodySmall,
+                                            ),
+                                          ),
+                                        );
+                                        Navigator.pop(context);
+                                      }
+                                    },
+                                    child: Text(
+                                      surahProvider.language == 'en'
+                                          ? 'Add'
+                                          : 'إضافة',
+                                      style: Theme.of(context)
+                                          .textTheme
+                                          .bodyMedium,
+                                    ),
+                                  ),
+                                ),
+                                const SizedBox(width: 10),
+                                Expanded(
+                                  child: ElevatedButton(
+                                    style: ElevatedButton.styleFrom(
+                                        shape: RoundedRectangleBorder(
+                                          borderRadius:
+                                              BorderRadius.circular(20),
+                                        ),
+                                        backgroundColor:
+                                            Theme.of(context).colorScheme.error,
+                                        padding: const EdgeInsets.symmetric(
+                                            vertical: 15)),
+                                    onPressed: () {
                                       Navigator.pop(context);
-                                    }
-                                  },
-                                  child: Text(
-                                    surahProvider.language == 'en'
-                                        ? 'Add'
-                                        : 'إضافة',
-                                    style:
-                                        Theme.of(context).textTheme.bodyMedium,
+                                    },
+                                    child: Text(
+                                      surahProvider.language == 'en'
+                                          ? 'Cancel'
+                                          : 'إلغاء',
+                                      style: Theme.of(context)
+                                          .textTheme
+                                          .bodyMedium,
+                                    ),
                                   ),
                                 ),
-                              ),
-                              const SizedBox(width: 10),
-                              Expanded(
-                                child: ElevatedButton(
-                                  style: ElevatedButton.styleFrom(
-                                      shape: RoundedRectangleBorder(
-                                        borderRadius: BorderRadius.circular(20),
-                                      ),
-                                      backgroundColor:
-                                          Theme.of(context).colorScheme.error,
-                                      padding: const EdgeInsets.symmetric(
-                                          vertical: 15)),
-                                  onPressed: () {
-                                    Navigator.pop(context);
-                                  },
-                                  child: Text(
-                                    surahProvider.language == 'en'
-                                        ? 'Cancel'
-                                        : 'إلغاء',
-                                    style:
-                                        Theme.of(context).textTheme.bodyMedium,
-                                  ),
-                                ),
-                              ),
-                            ],
-                          ),
-                        ],
+                              ],
+                            ),
+                          ],
+                        ),
                       ),
-                    ),
-                  );
-                },
-              );
-            },
-            child: Text(
-              surahProvider.language == 'en' ? 'Add New item' : 'إضافة أذكار',
-              style: Theme.of(context).textTheme.bodySmall,
+                    );
+                  },
+                );
+              },
+              child: Text(
+                surahProvider.language == 'en' ? 'Add New item' : 'إضافة أذكار',
+                style: Theme.of(context).textTheme.bodySmall,
+              ),
             ),
           ),
           const Spacer(flex: 4),
