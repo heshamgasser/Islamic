@@ -148,6 +148,12 @@ class _SebhaTabState extends State<SebhaTab> {
                                   : 'إضافة ذكر جديد',
                               style: Theme.of(context).textTheme.titleLarge,
                             ),
+                            Divider(
+                              color: Theme.of(context).colorScheme.onPrimary,
+                              thickness: 3,
+                              indent: 40,
+                              endIndent: 40,
+                            ),
                             SizedBox(height: 20),
                             TasbehTextFormFeild(controller: controller),
                             const SizedBox(height: 20),
