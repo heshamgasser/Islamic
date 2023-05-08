@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:islamic_app/models/surahDetailArgs.dart';
 
 class SurahScreen extends StatefulWidget {
@@ -25,7 +26,7 @@ class _SurahScreenState extends State<SurahScreen> {
 
     return Stack(
       children: [
-         SizedBox(
+        SizedBox(
           width: double.infinity,
           child: Image(
             image: AssetImage(Theme.of(context).brightness == Brightness.light
@@ -87,20 +88,49 @@ class _SurahScreenState extends State<SurahScreen> {
                       physics: const NeverScrollableScrollPhysics(),
                       shrinkWrap: true,
                       itemBuilder: (context, index) {
-                        return Directionality(
+                        return RichText(
                           textDirection: TextDirection.rtl,
-                          child: Text(
-                            surahContent[index],
-                            style: Theme.of(context)
-                                .textTheme
-                                .bodyLarge
-                                ?.copyWith(
-                                    fontSize: 20,
-                                    color: Theme.of(context)
-                                        .colorScheme
-                                        .onSurface),
+                          textAlign: surahContent.length <= 20
+                              ? TextAlign.center
+                              : TextAlign.right,
+                          text: TextSpan(
+                            children: [
+                              TextSpan(
+                                text: '${surahContent[index]}',
+                                style: Theme.of(context)
+                                    .textTheme
+                                    .bodyLarge
+                                    ?.copyWith(
+                                        fontSize: 25,
+                                        color: Theme.of(context)
+                                            .colorScheme
+                                            .onSurface),
+                              ),
+                              TextSpan(
+                                  text: '\u06dd${index + 1}',
+                                  style: GoogleFonts.amiri(
+                                      color: Theme.of(context)
+                                          .colorScheme
+                                          .onBackground,
+                                      fontSize: 40)),
+                            ],
                           ),
                         );
+
+                        //   Directionality(
+                        //   textDirection: TextDirection.rtl,
+                        //   child: Text(
+                        //     surahContent[index],
+                        //     style: Theme.of(context)
+                        //         .textTheme
+                        //         .bodyLarge
+                        //         ?.copyWith(
+                        //             fontSize: 20,
+                        //             color: Theme.of(context)
+                        //                 .colorScheme
+                        //                 .onSurface),
+                        //   ),
+                        // );
                       },
                       itemCount: surahContent.length,
                     ),
@@ -119,6 +149,7 @@ class _SurahScreenState extends State<SurahScreen> {
         await rootBundle.loadString('assets/Surah/${indexValue + 1}.txt');
 
     List<String> lines = surah.split('\n');
+
     setState(() {
       surahContent = lines;
     });
