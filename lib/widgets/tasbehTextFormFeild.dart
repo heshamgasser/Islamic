@@ -2,10 +2,10 @@ import 'package:flutter/material.dart';
 import 'package:islamic_app/providers/app_provider.dart';
 import 'package:provider/provider.dart';
 
-class TasbehTextFormFeild extends StatelessWidget {
+class TasbehTextFormFiled extends StatelessWidget {
   TextEditingController controller;
 
-  TasbehTextFormFeild({super.key, required this.controller});
+  TasbehTextFormFiled({super.key, required this.controller});
 
   @override
   Widget build(BuildContext context) {
@@ -15,8 +15,8 @@ class TasbehTextFormFeild extends StatelessWidget {
       validator: (value) {
         if (value == null || value.isEmpty) {
           return surahProvider.language == 'en'
-              ? 'Feild Required'
-              : 'حقل اجباري';
+              ? 'Filed Required'
+              : 'حقل إجباري';
         }
         return null;
       },

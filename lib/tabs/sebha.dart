@@ -121,7 +121,7 @@ class _SebhaTabState extends State<SebhaTab> {
             ),
           ),
           const Spacer(),
-          Container(
+          SizedBox(
             width: MediaQuery.of(context).size.width * .5,
             height: MediaQuery.of(context).size.height * .07,
             child: ElevatedButton(
@@ -154,8 +154,8 @@ class _SebhaTabState extends State<SebhaTab> {
                               indent: 40,
                               endIndent: 40,
                             ),
-                            SizedBox(height: 20),
-                            TasbehTextFormFeild(controller: controller),
+                            const SizedBox(height: 20),
+                            TasbehTextFormFiled(controller: controller),
                             const SizedBox(height: 20),
                             Row(
                               children: [
