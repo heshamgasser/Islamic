@@ -17,6 +17,7 @@ class LanguageBottomSheet extends StatelessWidget {
           InkWell(
             onTap: () {
               changeLanguage.changeLanguage('en');
+              Navigator.pop(context);
             },
             child: Row(
               children: [
@@ -44,6 +45,7 @@ class LanguageBottomSheet extends StatelessWidget {
           InkWell(
             onTap: () {
               changeLanguage.changeLanguage('ar');
+              Navigator.pop(context);
             },
             child: Row(
               children: [
