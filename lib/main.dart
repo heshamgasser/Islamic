@@ -9,8 +9,11 @@ import 'package:islamic_app/themeData/themes.dart';
 import 'package:provider/provider.dart';
 
 void main() {
-  runApp(ChangeNotifierProvider(
-      create: (context) => AppProvider(), child: const IslamicApp()));
+  runApp(MultiProvider(providers: [
+    ChangeNotifierProvider(
+      create: (context) => AppProvider(),
+    ),
+  ], child: const IslamicApp()));
 }
 
 class IslamicApp extends StatelessWidget {
@@ -39,7 +42,7 @@ class IslamicApp extends StatelessWidget {
       initialRoute: HomeScreen.routeName,
       routes: {
         HomeScreen.routeName: (context) => const HomeScreen(),
-        SurahScreen.routeName: (context) => const SurahScreen(),
+        SurahScreen.routeName: (context) => SurahScreen(),
         HadethScreen.routeName: (context) => HadethScreen(),
       },
     );
