@@ -22,7 +22,7 @@ class IslamicApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     var provider = Provider.of<AppProvider>(context);
-
+    provider.savedSetting();
     return MaterialApp(
       darkTheme: MyThemeData.darkTheme,
       theme: MyThemeData.lightTheme,
